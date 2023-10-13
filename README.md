@@ -16,7 +16,7 @@ Example grids are provided in `./grids`:
 
 For instance, `python main.py grids/grid_1.txt` prints
 
-```txt
+```
 *** Solution #1 ***
 
 -------------------------
