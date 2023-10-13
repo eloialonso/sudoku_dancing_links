@@ -2,6 +2,14 @@
 
 Sudoku solver based on Knuth's [Dancing Links](https://arxiv.org/pdf/cs/0011047.pdf) (Algorithm X with Dancing Links, or DLX).
 
+## Installation
+
+```sh
+git clone https://github.com/eloialonso/sudoku_dancing_links.git
+cd sudoku_dancing_links
+python main.py grids/grid_1.txt
+```
+
 ## Usage
 
 ```sh
