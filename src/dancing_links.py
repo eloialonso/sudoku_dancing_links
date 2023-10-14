@@ -13,7 +13,6 @@ def dlx(a: Matrix2D) -> Generator[Solution, None, None]:  # Knuth's Algorithm X 
         return min(loop_through(h, 'r'), key=lambda col: col.size)
     
     def search() -> Generator[Solution, None, None]:
-
         # Success
         if h.r is h:  
             yield tuple([int(x.name[1:].split('C')[0]) for x in stack])
@@ -30,8 +29,7 @@ def dlx(a: Matrix2D) -> Generator[Solution, None, None]:  # Knuth's Algorithm X 
                 stack.pop()
                 for j in loop_through(r, 'l'):
                     uncover_col(j.c)
-            uncover_col(c)
-                
+            uncover_col(c)     
         
     h = SparseMatrix(a).h
     stack = []

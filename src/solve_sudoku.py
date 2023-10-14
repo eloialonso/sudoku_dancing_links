@@ -1,21 +1,16 @@
 from __future__ import annotations
 
 from itertools import chain, product
-from pathlib import Path
-from typing import List, Optional
+from typing import List
 
 from .dancing_links import dlx
 
 
-def solve_sudoku(*, grid: Optional[List[List[int]]] = None, path: Optional[Path|str] = None) -> None:
-
-    assert (grid is None) != (path is None) # provide a grid xor a path
-
-    if grid is None:
-        with Path(path).open('r') as f:
-            grid = [list(map(int, x.strip().split(' '))) for x in f.readlines()]
+def solve_sudoku(grid: List[List[int]]) -> None:
         
     assert len(grid) == 9 and all((len(x) == 9 for x in grid)) and all(isinstance(x, int) and 0 <= x <= 9 for x in chain(*grid))
+
+    print(f'\n*** Initial grid ***\n\n' + get_board_fmt().format(*(x if x != 0 else ' ' for x in chain(*grid))))
 
     possibilities = [(r, c, n) for r, c in product(range(9), range(9)) 
                                 for n in (range(9) if grid [r][c] == 0 else (grid [r][c] - 1,))]
@@ -43,11 +38,11 @@ def solve_sudoku(*, grid: Optional[List[List[int]]] = None, path: Optional[Path|
     # Solve
     i = 0
     for i, sol in enumerate(dlx(m), start=1):
-        if i == 2 and input('Find all? [Y|n]').lower() == 'n': 
+        if i == 2 and input('Find all? [Y|n] ').lower() == 'n': 
             break
-        print(f'*** Solution #{i} ***\n\n' + format_solution(sol))
+        print(f'\n*** Solution #{i} ***\n\n' + format_solution(sol))
     else:
-        print(f'Found {i} solution{"s" if i > 1 else ""}.')
+        print(f'--> Found {i} solution{"s" if i > 1 else ""}.\n')
 
 
 ##########################
