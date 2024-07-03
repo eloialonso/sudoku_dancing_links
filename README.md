@@ -3,8 +3,9 @@
 Sudoku solver based on Knuth's Algorithm X implemented with [Dancing Links](https://arxiv.org/pdf/cs/0011047.pdf) (DLX).
 
 <div align='center'>
-     <img alt="Sudoku solver" src="sudoku_solver.gif">
+     <img alt="Sudoku solver" src="https://github.com/eloialonso/sudoku_dancing_links/assets/32040353/0d280904-203d-4e4e-8a59-9eb623f65131">
 </div>
+
 
 ## Installation and usage
 
